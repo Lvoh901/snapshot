@@ -48,7 +48,7 @@ const Hero = () => {
           <div className="flex flex-col space-y-8">
             <label
               htmlFor="UserEmail"
-              className="relative block overflow-hidden border-b border-gray-200 bg-transparent pt-3 focus-within:border-blue-600"
+              className="relative block overflow-hidden border-b border-gray-400 bg-transparent pt-3 focus-within:border-blue-600"
             >
               <input
                 type="email"
@@ -66,7 +66,7 @@ const Hero = () => {
 
             <label
               htmlFor="UserName"
-              className="relative block overflow-hidden border-b border-gray-200 bg-transparent pt-3 focus-within:border-blue-600"
+              className="relative block overflow-hidden border-b border-gray-400 bg-transparent pt-3 focus-within:border-blue-600"
             >
               <input
                 type="text"
@@ -91,7 +91,7 @@ const Hero = () => {
             <span
               className="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest text-black group-active:text-opacity-75"
             >
-              Download
+              Submit
             </span>
           </button>
         </form>
