@@ -1,0 +1,32 @@
+/* carousel */
+.slider-container {
+  overflow: hidden;
+  width: 90vw;
+  max-width: 90vw;
+  margin: auto;
+  position: relative;
+}
+
+.slider-wrapper {
+  display: flex;
+  animation: slide 60s infinite linear;
+}
+
+.slider-item {
+  min-width: 40%;
+}
+
+.slider-item img {
+  width: 100%; /* Make the image fill the container */
+  height: auto;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-600%);
+  }
+}
+/* carousel */

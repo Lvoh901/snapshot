@@ -1,24 +1,30 @@
 import React from 'react';
-
 // images
+import Arrow from '../images/arrow_down.png';
 import Img1 from '../images/gallery.jpg';
-import Img2 from '../images/gallery1.jpg';
+import Img2 from '../images/gallery5.jpg';
 import Img3 from '../images/gallery2.jpg';
 import Img4 from '../images/gallery3.jpg';
 import Img5 from '../images/gallery4.jpg';
 import Img6 from '../images/gallery6.jpg';
 
+
 const Hero = () => {
   return (
     <div className="pt-16">
-      <div className="text-[#F4F4F4] text-center flex flex-col justify-center items-center" id="hero" style={{ width: "100%", height: "85vh" }}>
+      <div className="text-[#F4F4F4] text-center flex flex-col justify-center items-center" id="hero" style={{ width: "100%", height: "80vh" }}>
         <div className="leading-5 py-20">
           <p className="">Hi, I'm</p>
           <h1 className="text-5xl lg:text-8xl" id="hero_name">Joseph.</h1>
         </div>
       </div>
 
-      <div className="">
+      <div className="bg-yellow-300">
+        <div className='flex flex-col justify-center items-center py-4 gap-3 lg:gap-5'>
+          <img src={Arrow} alt='arrow' className='animate-bounce w-8 h-8' />
+          <h1 className='text-4xl lg:text-5xl' id='hero_name'>My Offer</h1>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
           {[
             { img: Img1, title: "Branding", description: "Product Photography" },

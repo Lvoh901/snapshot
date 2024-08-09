@@ -9,7 +9,7 @@ const About = () => {
         <h1 className='text-5xl sm:text-3xl lg:text-7xl font-bold' id="hero_name">Joseph</h1>
       </div>
 
-      <img src={Char} style={{width:"calc(18em + 5vw)"}}/>
+      <img src={Char} style={{width:"calc(18em + 5vw)"}} alt='character'/>
 
       <div className='text-center space-y-4 py-4'>
         <p>Lorem ipsum odor amet, consectetuer adipiscing elit. Convallis lorem cubilia nisl convallis nostra dapibus. Donec natoque elit; ullamcorper nullam erat eu netus. </p>

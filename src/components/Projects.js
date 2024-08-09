@@ -1,4 +1,5 @@
 import React from 'react';
+import Carousel from '../assets/Carousel';
 
 // images
 import Img1 from '../images/gallery.jpg';
@@ -17,12 +18,12 @@ const Projects = () => {
             <p>Ante at sapien dapibus, luctus euismod fames. Quam vehicula erat rutrum nunc porttitor nam. Cras sodales natoque fermentum eleifend neque quam etiam vel auctor. Magnis habitant lobortis cursus integer porta congue tempus cras pretium. Fringilla sapien lacus consectetur massa conubia nunc himenaeos duis. Platea dignissim scelerisque sapien magna malesuada iaculis mauris morbi.</p>
           </div>
 
-          <img src={Img1} className='w-full' />
+          <img src={Img1} className='w-full' alt='project1' />
         </div>
 
         {/* project2 */}
         <div className='grid grid-cols-1 lg:grid-cols-2 sm:flex-col-reverse'>
-          <img src={Img3} className='w-full order-2 lg:order-1' />
+          <img src={Img3} className='w-full order-2 lg:order-1' alt='project2' />
 
           <div className='p-8 order-1 lg:order-2'>
             <h1 className='text-3xl lg:text-5xl'>Project <span>Evolve2</span></h1>
@@ -30,6 +31,10 @@ const Projects = () => {
           </div>
         </div>
       </section>
+
+      <div className='py-4'>
+        <Carousel />
+      </div>
 
       <button className="group relative inline-block focus:outline-none focus:ring my-4" href="/">
         <span
