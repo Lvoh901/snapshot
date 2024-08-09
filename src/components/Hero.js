@@ -1,145 +1,101 @@
-import React from "react";
-import HeroCarousel from "../assets/HeroCarousel";
-import Gallery from "../assets/Gallery";
-
-// carousel
-import "../assets/assets.css";
+import React from 'react';
 
 // images
-import Services from "../images/start.png";
-import Camera from "../images/camera.svg";
-import Photo from "../images/photo.svg";
-import Lens from "../images/lens.svg";
-import MultiShots from "../images/multishots.svg";
+import Img1 from '../images/gallery.jpg';
+import Img2 from '../images/gallery1.jpg';
+import Img3 from '../images/gallery2.jpg';
+import Img4 from '../images/gallery3.jpg';
+import Img5 from '../images/gallery4.jpg';
+import Img6 from '../images/gallery6.jpg';
 
-function Hero() {
+const Hero = () => {
   return (
-    <div>
-      <div className="w-full z-50 fixed bg-black text-white py-4 px-4">
-        <div className="flex items-center gap-1">
-          <h1 className="font-bold uppercase text-2xl lg:text-4xl">Snap</h1>
-          <img
-            src={Lens}
-            alt="lens"
-            className="w-8 h-8 lg:w-12 lg:h-12 bg-white rounded-full p-1"
-          />
+    <div className="pt-16">
+      <div className="text-[#F4F4F4] text-center flex flex-col justify-center items-center" id="hero" style={{ width: "100%", height: "85vh" }}>
+        <div className="leading-5 py-20">
+          <p className="">Hi, I'm</p>
+          <h1 className="text-5xl lg:text-8xl" id="hero_name">Joseph.</h1>
         </div>
       </div>
 
-      <div className="pt-12">
-        <HeroCarousel />
-      </div>
-
-      {/* about */}
-      <div className="px-8 lg:px-20 pt-8">
-        <div className="grid grid-cols-1 gap-2 lg:grid-cols-3 lg:gap-4">
-          <div className="">
-            <h1 className="text-5xl lg:text-6xl font-bold font-[playfair-serif]">
-              Capturing Daily life through my Lens
-            </h1>
-          </div>
-
-          <div className="text-3xl font-[montserrat] lg:col-span-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            varius enim in eros elementum tristique. Duis cursus, mi quis
-            viverra ornare, eros dolor interdum nulla, ut commodo diam libero
-            vitae erat. Aenean faucibus nibh et justo cursu.
-          </div>
-        </div>
-
-        <Gallery />
-      </div>
-
-      <section className="py-12 bg-gray-300">
-        <div className="px-8 lg:px-12 flex flex-col items-center text-center space-y-4">
-          <h1 className="text-3xl lg:text-5xl font-[playfair-serif] font-bold">
-            Life is about Creating Experiences
-          </h1>
-
-          <p className="text-2xl lg:text-3xl font-[montserrat]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            varius enim in eros elementum tristique. Duis cursus, mi quis
-            viverra ornare, eros dolor interdum nulla, ut commodo diam libero
-            vitae erat.
-          </p>
-
-          <div class="relative">
-            <img src={Services} alt="services" />
-            <div class="absolute bottom-0 left-0 bg-gray-200 p-3 font-[Montserrat]">
-              <div className="flex gap-5">
-                <img
-                  src={Camera}
-                  alt="videoshoot"
-                  className="w-4 h-4 lg:w-8 lg:h-8"
-                />
-
-                <img
-                  src={Photo}
-                  alt="photography"
-                  className="w-4 h-4 lg:w-8 lg:h-8"
-                />
-
-                <img src={Lens} alt="lens" className="w-4 h-4 lg:w-8 lg:h-8" />
-
-                <img
-                  src={MultiShots}
-                  alt="multishots"
-                  className="w-4 h-4 lg:w-8 lg:h-8"
-                />
+      <div className="">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
+          {[
+            { img: Img1, title: "Branding", description: "Product Photography" },
+            { img: Img2, title: "Wedding", description: "Photography/ Videography" },
+            { img: Img3, title: "Video Editing", description: "Video Shoot/ Production" },
+            { img: Img4, title: "Live Video", description: "Video Broadcasting" },
+            { img: Img5, title: "Photo Editing", description: "Adobe Suite Production" },
+            { img: Img6, title: "Branding", description: "Image Photography" }
+          ].map((item, index) => (
+            <div key={index} className="flex justify-center items-center relative cursor-pointer">
+              <div className="absolute inset-0 flex flex-col justify-center items-center bg-black/15 hover:bg-black/75 text-white">
+                <h1 className="text-2xl lg:text-3xl italic">{item.title}</h1>
+                <p>{item.description}</p>
               </div>
+              <img src={item.img} alt={`Gallery ${index + 1}`} className="w-full h-full object-cover" />
             </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="p-16 flex flex-col justify-center items-center text-center bg-gray-100 space-y-8">
+        <h1 className="text-4xl lg:text-5xl font-bold" id="hero_name">Let's Work Together</h1>
+
+        <p>Am open to new and ongoing projects. I have three days open in the coming week for new projects. Leave your details for a response.</p>
+
+        <form className="w-full max-w-lg">
+          <div className="flex flex-col space-y-8">
+            <label
+              htmlFor="UserEmail"
+              className="relative block overflow-hidden border-b border-gray-200 bg-transparent pt-3 focus-within:border-blue-600"
+            >
+              <input
+                type="email"
+                id="UserEmail"
+                placeholder="Email"
+                className="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+              />
+
+              <span
+                className="absolute start-0 top-2 -translate-y-1/2 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+              >
+                Email
+              </span>
+            </label>
+
+            <label
+              htmlFor="UserName"
+              className="relative block overflow-hidden border-b border-gray-200 bg-transparent pt-3 focus-within:border-blue-600"
+            >
+              <input
+                type="text"
+                id="UserName"
+                placeholder="Name"
+                className="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+              />
+
+              <span
+                className="absolute start-0 top-2 -translate-y-1/2 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+              >
+                Name
+              </span>
+            </label>
           </div>
-        </div>
-      </section>
-      {/* about */}
 
-      {/* services */}
-      <section className="grid grid-cols-1 lg:grid-cols-3">
-        <div className="bg-gray-400 p-9 flex flex-col justify-center items-center text-center text-white">
-          <h1 className="font-bold font-[playfair-serif] text-2xl lg:text-4xl">
-            Photoshoots
-          </h1>
-        </div>
+          <button className="group relative inline-block focus:outline-none focus:ring mt-8" href="/">
+            <span
+              className="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-yellow-300 transition-transform group-hover:translate-x-0 group-hover:translate-y-0"
+            ></span>
 
-        <div className="bg-red-700 p-9 flex flex-col justify-center items-center text-center text-white">
-          <h1 className="font-bold font-[playfair-serif] text-2xl lg:text-4xl">
-            VideoShoots
-          </h1>
-        </div>
-
-        <div className="bg-gray-800 p-9 flex flex-col justify-center items-center text-center text-white">
-          <h1 className="font-bold font-[playfair-serif] text-2xl lg:text-4xl">
-            Editing
-          </h1>
-        </div>
-      </section>
-      {/* services */}
-
-      {/* slides */}
-      <section className="grid grid-cols-1 gap-1 lg:grid-cols-2">
-        <div className="bg-img1">
-          <div
-            className="flex flex-col justify-center items-center text-white bg-black/75 hover:bg-black/25 cursor-pointer"
-            style={{ height: "50vh" }}
-          >
-            <div className="text-center p-5">
-              <h1 className="font-bold text-3xl lg:text-4xl">On-Site</h1>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-img2">
-          <div
-            className="flex flex-col justify-center items-center text-white bg-black/75 hover:bg-black/25 cursor-pointer"
-            style={{ height: "50vh" }}
-          >
-            <div className="text-center p-5">
-              <h1 className="font-bold text-3xl lg:text-4xl">Freelance</h1>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* slides */}
+            <span
+              className="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest text-black group-active:text-opacity-75"
+            >
+              Download
+            </span>
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
