@@ -1,4 +1,6 @@
 import React from 'react';
+import scrollToSection from '../assets/ScrollTo';
+
 // images
 import Arrow from '../images/arrow_down.png';
 import Img1 from '../images/gallery.jpg';
@@ -21,11 +23,14 @@ const Hero = () => {
 
       <div className="bg-yellow-300">
         <div className='flex flex-col justify-center items-center py-4 gap-3 lg:gap-5'>
-          <img src={Arrow} alt='arrow' className='animate-bounce w-8 h-8' />
+          <button onClick={() => scrollToSection("services")}>
+            <img src={Arrow} alt='arrow' className='animate-bounce w-8 h-8' />
+          </button>
+
           <h1 className='text-4xl lg:text-5xl' id='hero_name'>My Offer</h1>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1" id='services'>
           {[
             { img: Img1, title: "Branding", description: "Product Photography" },
             { img: Img2, title: "Wedding", description: "Photography/ Videography" },

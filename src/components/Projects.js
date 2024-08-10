@@ -1,5 +1,8 @@
 import React from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import Carousel from '../assets/Carousel';
+
 
 // images
 import Img1 from '../images/gallery.jpg';
@@ -10,7 +13,7 @@ const Projects = () => {
     <div className='pt-20 px-8'>
       <h1 className='text-5xl sm:text-3xl lg:text-7xl font-bold py-4 underline underline-offset-8 decoration-yellow-300' id="hero_name">Projects</h1>
 
-      <section className='px-8 lg:px-20 space-y-2 lg:space-y-0 flex flex-col justify-center items-center'>
+      <section className='px-8 lg:px-20 space-y-2 lg:space-y-0 flex flex-col justify-center items-center' data-aos="fade-up">
         {/* project1 */}
         <div className='grid grid-cols-1 lg:grid-cols-2'>
           <div className='p-8'>
@@ -50,5 +53,7 @@ const Projects = () => {
     </div>
   )
 }
+
+AOS.init();
 
 export default Projects;

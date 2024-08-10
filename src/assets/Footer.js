@@ -18,7 +18,7 @@ const Footer = () => {
             <div className='bg-gray-200 py-8 px-12'>
                 <div className='flex flex-col'>
                     <h1 className="text-2xl py-4 flex items-center gap-2" id="hero_name">
-                        <img src={Icon} className='w-8 h-8' />
+                        <img src={Icon} className='w-8 h-8' alt='icon'/>
                         <Link to="/" id="title">Homologous</Link>
                     </h1>
                     <p className='flex gap-2 items-center italic'><img src={Phone} className='w-8 h-8' alt='mobile' />  +254-712-345-678</p>
