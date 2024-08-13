@@ -11,21 +11,17 @@ import Clip6 from '../images/clip6.jpeg';
 import Clip7 from '../images/clip7.jpeg';
 import Clip8 from '../images/clip8.jpeg';
 import Clip9 from '../images/img1.jpg';
+import Clip10 from '../images/img2.jpg';
+import Clip11 from '../images/img3.jpg';
+import Clip12 from '../images/img4.jpg';
+import Clip13 from '../images/img5.jpg';
+import Clip14 from '../images/img6.jpg';
 
 const Gallery = () => {
     const [selectedImage, setSelectedImage] = useState(null);
 
     const images = [
-        Clip,
-        Clip1,
-        Clip5,
-        Clip2,
-        Clip3,
-        Clip4,
-        Clip6,
-        Clip7,
-        Clip8,
-        Clip9
+        Clip, Clip1, Clip2, Clip3, Clip4, Clip5, Clip6, Clip7, Clip8, Clip9, Clip10, Clip11, Clip12, Clip13, Clip14
     ];
 
     const handleImageClick = (image) => {
