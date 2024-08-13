@@ -6,6 +6,8 @@ import About from './components/About';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './assets/Footer';
+import Gallery from './components/Gallery';
+import NotFound from './components/NotFound';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route path="/about" exact element={<About />} />;
         <Route path="/projects" exact element={<Projects />} />;
         <Route path="/contact" exact element={<Contact />} />;
+        <Route path="/gallery" exact element={<Gallery />} />;
+        <Route path="*" exact element={<NotFound />} />;
       </Routes>
 
       <Footer />

@@ -9,11 +9,12 @@
 
 .slider-wrapper {
   display: flex;
+  gap: 2px;
   animation: slide 60s infinite linear;
 }
 
 .slider-item {
-  min-width: 40%;
+  min-width: 50%;
 }
 
 .slider-item img {

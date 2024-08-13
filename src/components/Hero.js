@@ -27,7 +27,7 @@ const Hero = () => {
             <img src={Arrow} alt='arrow' className='animate-bounce w-8 h-8' />
           </button>
 
-          <h1 className='text-4xl lg:text-5xl' id='hero_name'>My Offer</h1>
+          <h1 className='text-4xl lg:text-5xl' id='hero_name'>My Offer Package</h1>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1" id='services'>
@@ -37,7 +37,7 @@ const Hero = () => {
             { img: Img3, title: "Video Editing", description: "Video Shoot/ Production" },
             { img: Img4, title: "Live Video", description: "Video Broadcasting" },
             { img: Img5, title: "Photo Editing", description: "Adobe Suite Production" },
-            { img: Img6, title: "Branding", description: "Image Photography" }
+            { img: Img6, title: "Photography", description: "Nature Photography" }
           ].map((item, index) => (
             <div key={index} className="flex justify-center items-center relative cursor-pointer">
               <div className="absolute inset-0 flex flex-col justify-center items-center bg-black/15 hover:bg-black/75 text-white">

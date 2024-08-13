@@ -3,7 +3,7 @@ import Char from '../images/character.png';
 
 const About = () => {
   return (
-    <div className='p-20 flex flex-col justify-center items-center'>
+    <div className='h-screen p-20 flex flex-col justify-center items-center'>
       <div className='flex gap-1 pt-12 pb-4'>
         <p className=''>About</p>
         <h1 className='text-5xl sm:text-3xl lg:text-7xl font-bold' id="hero_name">Joseph</h1>
