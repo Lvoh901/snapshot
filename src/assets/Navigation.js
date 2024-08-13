@@ -31,6 +31,7 @@ const Navigation = () => {
                     <Link to="/" className="cursor-pointer uppercase hover:text-gray-400">Home</Link>
                     <Link to="/about" className="cursor-pointer uppercase hover:text-gray-400">About</Link>
                     <Link to="/projects" className="cursor-pointer uppercase hover:text-gray-400">Projects</Link>
+                    <Link to="/gallery" className="cursor-pointer uppercase hover:text-gray-400">Gallery</Link>
                     <Link to="/contact" className="cursor-pointer uppercase hover:text-gray-400">Contact</Link>
                 </div>
 
@@ -48,6 +49,7 @@ const Navigation = () => {
                     <Link to="/" className="cursor-pointer uppercase hover:text-gray-400 py-2" onClick={toggleMenu}>Home</Link>
                     <Link to="/about" className="cursor-pointer uppercase hover:text-gray-400 py-2" onClick={toggleMenu}>About</Link>
                     <Link to="/projects" className="cursor-pointer uppercase hover:text-gray-400 py-2" onClick={toggleMenu}>Projects</Link>
+                    <Link to="/gallery" className="cursor-pointer uppercase hover:text-gray-400 py-2" onClick={toggleMenu}>Gallery</Link>
                     <Link to="/contact" className="cursor-pointer uppercase hover:text-gray-400 py-2" onClick={toggleMenu}>Contact</Link>
 
                     <div className="flex gap-3 items-center py-2">
