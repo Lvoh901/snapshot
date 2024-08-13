@@ -16,7 +16,7 @@ const Navigation = () => {
         <div className="fixed w-full z-50 bg-[#444C4C] text-[#F4F4F4]">
             <div className="flex justify-between items-center p-4">
                 <h1 className="font-bold cursor-pointer italic flex items-center gap-2">
-                    <img src={Icon} className='w-8 h-8' alt='icon'/>
+                    <img src={Icon} className='w-8 h-8' alt='icon' />
                     <Link to="/" id="title">Homologous</Link>
                 </h1>
                 <div className="lg:hidden">
@@ -35,9 +35,11 @@ const Navigation = () => {
                 </div>
 
                 <div className="hidden lg:flex gap-3 items-center">
-                    <img src={Facebook} className="w-8 h-8 cursor-pointer" alt="fb" />
-                    <img src={Instagram} className="w-8 h-8 cursor-pointer" alt="ig" />
-                    <img src={Youtube} className="w-8 h-8 cursor-pointer" alt="yt" />
+                    <Link to='https://www.facebook.com/profile.php?id=61555045456071' target='_blank'><img src={Facebook} className="w-8 h-8 cursor-pointer" alt="fb" /></Link>
+
+                    <Link to='https://www.instagram.com/homologousmedia/' target='_blank'><img src={Instagram} className="w-8 h-8 cursor-pointer" alt="ig" /></Link>
+
+                    <Link to='https://www.youtube.com/@homologousMedia' target='_blank'><img src={Youtube} className="w-8 h-8 cursor-pointer" alt="yt" /></Link>
                 </div>
             </div>
 
@@ -47,10 +49,13 @@ const Navigation = () => {
                     <Link to="/about" className="cursor-pointer uppercase hover:text-gray-400 py-2" onClick={toggleMenu}>About</Link>
                     <Link to="/projects" className="cursor-pointer uppercase hover:text-gray-400 py-2" onClick={toggleMenu}>Projects</Link>
                     <Link to="/contact" className="cursor-pointer uppercase hover:text-gray-400 py-2" onClick={toggleMenu}>Contact</Link>
+
                     <div className="flex gap-3 items-center py-2">
-                        <img src={Facebook} className="w-8 h-8 cursor-pointer" alt="fb" />
-                        <img src={Instagram} className="w-8 h-8 cursor-pointer" alt="ig" />
-                        <img src={Youtube} className="w-8 h-8 cursor-pointer" alt="yt" />
+                        <Link to='https://www.facebook.com/profile.php?id=61555045456071' target='_blank'><img src={Facebook} className="w-8 h-8 cursor-pointer" alt="fb" /></Link>
+
+                        <Link to='https://www.instagram.com/homologousmedia/' target='_blank'><img src={Instagram} className="w-8 h-8 cursor-pointer" alt="ig" /></Link>
+
+                        <Link to='https://www.youtube.com/@homologousMedia' target='_blank'><img src={Youtube} className="w-8 h-8 cursor-pointer" alt="yt" /></Link>
                     </div>
                 </div>
             )}
