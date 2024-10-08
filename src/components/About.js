@@ -3,18 +3,20 @@ import Char from '../images/character.png';
 
 const About = () => {
   return (
-    <div className='h-screen p-20 flex flex-col justify-center items-center'>
-      <div className='flex gap-1 pt-12 pb-4'>
-        <p className=''>About</p>
-        <h1 className='text-5xl sm:text-3xl lg:text-7xl font-bold' id="hero_name">Joseph</h1>
-      </div>
+    <div className="py-20 px-12 flex flex-col lg:flex-row justify-center items-center gap-3">
+      <img src={Char} style={{ width: "calc(18em + 5vw)" }} alt='character' className="" />
 
-      <img src={Char} style={{width:"calc(18em + 5vw)"}} alt='character'/>
+      <div className="">
+        <div className='flex gap-1 p-2'>
+          <p className=''>About</p>
+          <h1 className='text-5xl sm:text-3xl lg:text-7xl font-bold' id="hero_name">Joseph</h1>
+        </div>
 
-      <div className='text-center space-y-4 py-4'>
-        <p>Lorem ipsum odor amet, consectetuer adipiscing elit. Convallis lorem cubilia nisl convallis nostra dapibus. Donec natoque elit; ullamcorper nullam erat eu netus. </p>
+        <div className='space-y-4 py-4'>
+          <p>I am a passionate photographer dedicated to capturing life’s most precious moments. Specializing in weddings, portraits, and events, I transform your memories into timeless visual stories that you’ll cherish forever.</p>
 
-        <p>Ante at sapien dapibus, luctus euismod fames. Quam vehicula erat rutrum nunc porttitor nam. Cras sodales natoque fermentum eleifend neque quam etiam vel auctor. Magnis habitant lobortis cursus integer porta congue tempus cras pretium. Fringilla sapien lacus consectetur massa conubia nunc himenaeos duis. Platea dignissim scelerisque sapien magna malesuada iaculis mauris morbi.</p>
+          <p>With a keen eye for detail and a creative touch, I ensure every shot is perfect. Let me bring your vision to life and create stunning images that reflect your unique story. Book your session today and experience the magic of professional photography!</p>
+        </div>
       </div>
     </div>
   )

@@ -13,7 +13,7 @@ import Img6 from '../images/gallery6.jpg';
 
 const Hero = () => {
   return (
-    <div className="pt-16">
+    <div className="pt-12">
       <div className="text-[#F4F4F4] text-center flex flex-col justify-center items-center" id="hero" style={{ width: "100%", height: "80vh" }}>
         <div className="leading-5 py-20">
           <p className="">Hi, I'm</p>

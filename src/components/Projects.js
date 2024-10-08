@@ -1,77 +1,107 @@
-import React from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import Carousel from '../assets/Carousel';
+import React, { useState } from 'react';
 
-
-// images
-import Img1 from '../images/gallery.jpg';
-import Img3 from '../images/gallery2.jpg';
+// Images for the carousel (you can replace with actual images)
+import ChairImage1 from "../images/img1.jpg";
+import ChairImage2 from "../images/img2.jpg";
+import ChairImage3 from "../images/img3.jpg";
+import Slider from '../assets/Swiper';
 
 const Projects = () => {
+  const products = [
+    {
+      image: ChairImage1,
+      title: "Ngong' Hills Drive",
+      setting: "Outdoor Drive",
+      description: "Scenic nature captures.",
+      camera: "Canon EOS M50 Mark II Mirrorless",
+      aperture: "F 1.4",
+      shutter: "1/3000",
+      ISO: "1/3000"
+    },
+    {
+      image: ChairImage2,
+      title: "Countryside",
+      setting: "Outdoor Shoots",
+      description: "Amazing countryside adventures and still shoots.",
+      camera: "Canon EOS M6 Mark II Mirrorless Digital Camera",
+      aperture: "F 1.8",
+      shutter: "1/2000",
+      ISO: "1/500"
+    },
+    {
+      image: ChairImage3,
+      title: "Random Shoots",
+      setting: "Outdoor Shoots",
+      description: "Still shoots outdoors",
+      camera: "Nikon Z 50 Mirrorless Digital Camera",
+      aperture: "F 2.0",
+      shutter: "1/800",
+      ISO: "1/2000"
+    }
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + products.length) % products.length);
+  };
+
+  const currentProduct = products[currentIndex];
+
   return (
-    <div className='pt-20 px-8'>
-      <h1 className='text-5xl sm:text-3xl lg:text-7xl font-bold py-4 underline underline-offset-8 decoration-yellow-300' id="hero_name">Projects</h1>
+    <div>
+      <div className="flex flex-col lg:flex-row max-w-7xl mx-auto p-8 pt-16">
 
-      <section className='px-8 lg:px-20 space-y-2 lg:space-y-0 flex flex-col justify-center items-center' data-aos="fade-up">
-        {/* project1 */}
-        <div className='grid grid-cols-1 lg:grid-cols-2'>
-          <div className='p-8 space-y-4'>
-            <h1 className='text-3xl lg:text-5xl'>Project <span className='italic'>1</span></h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ligula arcu, cursus eu mattis sit amet, consectetur at neque. Ut luctus imperdiet urna, ut rhoncus sem varius eget. Aliquam imperdiet in libero at mollis. Maecenas ut diam vulputate, scelerisque nisl vulputate, commodo neque.</p>
+        {/* Image Section */}
+        <div className="w-full lg:w-1/2 flex flex-col">
+          <img src={currentProduct.image} alt={currentProduct.title} className="w-full object-cover" />
 
-            <p className='font-bold'>Specifics:</p>
-            <ul className='list-decimal pl-8'>
-              <li>Camera: Canon EOS M50 Mark II Mirrorless</li>
-              <li>Aperture: F 1.4</li>
-              <li>Shutter Speed: 1/500</li>
-              <li>ISO: 250</li>
-              <li>Dark Room</li>
-            </ul>
-          </div>
-
-          <img src={Img1} className='w-full' alt='project1' />
-        </div>
-
-        {/* project2 */}
-        <div className='grid grid-cols-1 lg:grid-cols-2 sm:flex-col-reverse'>
-          <img src={Img3} className='w-full order-2 lg:order-1' alt='project2' />
-
-          <div className='p-8 order-1 lg:order-2 space-y-4'>
-            <h1 className='text-3xl lg:text-5xl'>Project <span className='italic'>2</span></h1>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut mattis iaculis convallis. Vivamus fringilla felis ac aliquam facilisis. Phasellus sed tortor auctor, dignissim sem vel, mattis nisl. Aenean egestas condimentum fermentum.</p>
-
-            <p className='font-bold'>Specifics:</p>
-            <ul className='list-decimal pl-8'>
-              <li>Camera: Canon EOS M50 Mark II Mirrorless</li>
-              <li>Aperture: F 1.4</li>
-              <li>Shutter Speed: 1/500</li>
-              <li>ISO: 250</li>
-              <li>Dark Room</li>
-            </ul>
+          <div className="pt-8 space-x-2">
+            {/* Previous/Next Buttons */}
+            <button
+              onClick={handlePrev}
+              className="transform -translate-y-1/2 bg-gray-500 text-white px-3 py-2"
+            >
+              Prev
+            </button>
+            <button
+              onClick={handleNext}
+              className="transform -translate-y-1/2 bg-gray-500 text-white px-3 py-2"
+            >
+              Next
+            </button>
           </div>
         </div>
-      </section>
 
-      <div className='py-4'>
-        <Carousel />
+        {/* Description Section */}
+        <div className="w-full lg:w-1/2 px-4 lg:pt-4">
+          <h1 className="text-3xl font-bold">{currentProduct.title}</h1>
+
+          <div className="py-3">
+            <h3 className="text-xl text-gray-500">{currentProduct.setting}</h3>
+            <p className="text-gray-600 mb-4">{currentProduct.description}</p>
+          </div>
+
+          <p className="font-bold">Specifications:</p>
+
+          <div>
+            <p>Camera: {currentProduct.camera}</p>
+            <p>Aperture:  {currentProduct.aperture}</p>
+            <p>Shutter Speed:  {currentProduct.shutter}</p>
+            <p>ISO:  {currentProduct.ISO}</p>
+          </div>
+        </div>
       </div>
 
-      <a className="group relative inline-block focus:outline-none focus:ring my-4" href="/gallery">
-        <span
-          className="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-yellow-300 transition-transform group-hover:translate-x-0 group-hover:translate-y-0"
-        ></span>
-
-        <span
-          className="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest text-black group-active:text-opacity-75"
-        >
-          More Projects +
-        </span>
-      </a>
+      <div className="py-3">
+        <Slider />
+      </div>
     </div>
-  )
-}
-
-AOS.init();
+  );
+};
 
 export default Projects;

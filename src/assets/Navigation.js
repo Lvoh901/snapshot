@@ -14,9 +14,9 @@ const Navigation = () => {
 
     return (
         <div className="fixed w-full z-50 bg-[#444C4C] text-[#F4F4F4]">
-            <div className="flex justify-between items-center p-4">
+            <div className="flex justify-between items-center p-3">
                 <h1 className="font-bold cursor-pointer italic flex items-center gap-2">
-                    <img src={Icon} className='w-8 h-8' alt='icon' />
+                    <img src={Icon} className=' w-4 h-4 lg:w-8 lg:h-8' alt='icon' />
                     <Link to="/" id="title">Homologous</Link>
                 </h1>
                 <div className="lg:hidden">
