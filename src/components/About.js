@@ -3,7 +3,8 @@ import Char from '../images/character.png';
 
 const About = () => {
   return (
-    <div className="py-12 px-6 md:px-12 lg:px-20 flex flex-col lg:flex-row justify-center items-center gap-8">
+    <div className="min-h-screen flex justify-center items-center">
+      <div className="py-12 px-6 md:px-12 lg:px-20 flex flex-col lg:flex-row justify-center items-center gap-8">
       {/* Character Image */}
       <img
         src={Char}
@@ -31,6 +32,7 @@ const About = () => {
           </p>
         </div>
       </div>
+    </div>
     </div>
   );
 };
