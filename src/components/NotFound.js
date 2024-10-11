@@ -5,7 +5,7 @@ import Error from '../images/confused.gif';
 const NotFound = () => {
     return (
         <div className='h-screen flex flex-col justify-center items-center space-y-4'>
-            <img src={Error} className='w-52 h-52 lg:w-56 lg:h-56'/>
+            <img src={Error} className='w-52 h-52 lg:w-56 lg:h-56' alt="ErrorImg"/>
             <h1 className='text-3xl lg:text-6xl'>Not Found | <span className='font-bold italic text-yellow-300 underline underline-offset-4'>404</span></h1>
 
             <div className='text-center'>

@@ -53,24 +53,30 @@ const Projects = () => {
   const currentProduct = products[currentIndex];
 
   return (
-    <div>
-      <div className="flex flex-col lg:flex-row max-w-7xl mx-auto p-8 pt-16">
+    <div className="max-w-7xl mx-auto p-4 lg:p-8 pt-16">
+
+      {/* Main Flexbox Container */}
+      <div className="flex flex-col lg:flex-row gap-8 pt-8">
 
         {/* Image Section */}
-        <div className="w-full lg:w-1/2 flex flex-col">
-          <img src={currentProduct.image} alt={currentProduct.title} className="w-full object-cover" />
+        <div className="w-full lg:w-1/2">
+          <img
+            src={currentProduct.image}
+            alt={currentProduct.title}
+            className="w-full h-auto object-cover rounded-lg"
+          />
 
-          <div className="pt-8 space-x-2">
+          <div className="pt-4 space-x-4 flex justify-center lg:justify-start">
             {/* Previous/Next Buttons */}
             <button
               onClick={handlePrev}
-              className="transform -translate-y-1/2 bg-gray-500 text-white px-3 py-2"
+              className="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600"
             >
               Prev
             </button>
             <button
               onClick={handleNext}
-              className="transform -translate-y-1/2 bg-gray-500 text-white px-3 py-2"
+              className="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600"
             >
               Next
             </button>
@@ -78,26 +84,27 @@ const Projects = () => {
         </div>
 
         {/* Description Section */}
-        <div className="w-full lg:w-1/2 px-4 lg:pt-4">
-          <h1 className="text-3xl font-bold">{currentProduct.title}</h1>
+        <div className="w-full lg:w-1/2 px-4 lg:px-0">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">{currentProduct.title}</h1>
 
-          <div className="py-3">
-            <h3 className="text-xl text-gray-500">{currentProduct.setting}</h3>
+          <div className="py-2">
+            <h3 className="text-lg md:text-xl text-gray-500">{currentProduct.setting}</h3>
             <p className="text-gray-600 mb-4">{currentProduct.description}</p>
           </div>
 
-          <p className="font-bold">Specifications:</p>
+          <p className="font-bold text-lg">Specifications:</p>
 
-          <div>
+          <div className="pt-2 space-y-1">
             <p>Camera: {currentProduct.camera}</p>
-            <p>Aperture:  {currentProduct.aperture}</p>
-            <p>Shutter Speed:  {currentProduct.shutter}</p>
-            <p>ISO:  {currentProduct.ISO}</p>
+            <p>Aperture: {currentProduct.aperture}</p>
+            <p>Shutter Speed: {currentProduct.shutter}</p>
+            <p>ISO: {currentProduct.ISO}</p>
           </div>
         </div>
       </div>
 
-      <div className="py-3">
+      {/* Slider Section */}
+      <div className="py-8">
         <Slider />
       </div>
     </div>
