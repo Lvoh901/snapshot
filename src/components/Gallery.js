@@ -1,19 +1,11 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { FixedSizeGrid as Grid } from 'react-window';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import AutoSizer from 'react-virtualized-auto-sizer';
+import Masonry from 'react-masonry-css';
 
-// Import all images dynamically (better approach for many images)
 const importAll = (r) => r.keys().map(r);
 const imageContext = require.context('../images/gallery', false, /\.(jpg|jpeg|png|webp)$/);
 const imageFiles = importAll(imageContext);
 
-// Configuration constants
-const COLUMN_WIDTH = 350;
-const ROW_HEIGHT = 350;
-const GUTTER_SIZE = 16;
-
-// Generate image data programmatically
 const generateImageData = () => {
     const locations = ['Kenya', 'Iceland', 'Norway', 'Alaska', 'Scotland', 'Peru', 'Japan', 'Brazil', 'Australia', 'France', 'Germany', 'Italy', 'Mexico', 'USA', 'Greece'];
     const cameras = ['Canon R5', 'Sony A7IV', 'Nikon D850', 'Canon R6', 'Sony A7III', 'Fujifilm X-T4', 'Olympus OM-D', 'Panasonic GH5', 'Canon EOS R', 'Sony A1', 'Leica Q2', 'Nikon Z6', 'Canon 90D', 'Sony RX100', 'Fujifilm X100V'];
@@ -29,128 +21,101 @@ const generateImageData = () => {
     }));
 };
 
-// Memoized Cell component
-const Cell = React.memo(({ columnIndex, rowIndex, style, data }) => {
-    const index = rowIndex * data.columns + columnIndex;
-    const image = data.images[index];
-    if (!image) return null;
+const ImageCard = ({ image, onSelect }) => (
+    <motion.div
+        className="relative rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all mb-4 cursor-pointer"
+        whileHover={{ scale: 1.02 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        onClick={() => onSelect(image)}
+    >
+        <img
+            src={image.src}
+            alt={image.title}
+            loading="lazy"
+            className="w-full object-cover"
+        />
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+            <h3 className="text-white font-medium truncate">{image.title}</h3>
+            <p className="text-white/80 text-sm truncate">{image.location}</p>
+        </div>
+    </motion.div>
+);
 
-    return (
+const ImageModal = ({ image, onClose }) => (
+    <motion.div
+        className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={onClose}
+    >
         <motion.div
-            style={{
-                ...style,
-                padding: `${GUTTER_SIZE / 2}px`,
-                width: `calc(${style.width}px - ${GUTTER_SIZE}px)`,
-                height: `calc(${style.height}px - ${GUTTER_SIZE}px)`
-            }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: index * 0.05 }}
-            className="overflow-hidden"
+            className="bg-white rounded-xl p-6 max-w-4xl w-full max-h-[90vh] overflow-auto relative"
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            transition={{ type: 'spring', damping: 25 }}
+            onClick={(e) => e.stopPropagation()}
         >
-            <motion.div
-                className="relative h-full w-full rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all"
-                whileHover={{ scale: 1.02 }}
-                onClick={() => data.onSelect(image)}
+            <button
+                className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl transition-colors"
+                onClick={onClose}
+                aria-label="Close modal"
             >
-                <img
-                    src={image.src}
-                    alt={image.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover cursor-pointer"
-                />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                    <h3 className="text-white font-medium truncate">{image.title}</h3>
-                    <p className="text-white/80 text-sm truncate">{image.location}</p>
+                &times;
+            </button>
+            <div className="flex flex-col md:flex-row gap-6">
+                <div className="md:w-2/3">
+                    <motion.img
+                        src={image.src}
+                        alt={image.title}
+                        className="w-full h-auto rounded-lg shadow-md"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.2 }}
+                    />
                 </div>
-            </motion.div>
-        </motion.div>
-    );
-});
-
-// Modal component
-const ImageModal = ({ image, onClose }) => {
-    return (
-        <motion.div
-            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={onClose}
-        >
-            <motion.div
-                className="bg-white rounded-xl p-6 max-w-4xl w-full max-h-[90vh] overflow-auto"
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.9, opacity: 0 }}
-                transition={{ type: 'spring', damping: 25 }}
-                onClick={(e) => e.stopPropagation()}
-            >
-                <button
-                    className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl transition-colors"
-                    onClick={onClose}
-                    aria-label="Close modal"
-                >
-                    &times;
-                </button>
-
-                <div className="flex flex-col md:flex-row gap-6">
-                    <div className="md:w-2/3">
-                        <motion.img
-                            src={image.src}
-                            alt={image.title}
-                            className="w-full h-auto rounded-lg shadow-md"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.2 }}
-                        />
-                    </div>
-
-                    <div className="md:w-1/3 space-y-4">
-                        <motion.h2
-                            className="text-2xl font-bold text-gray-800"
-                            initial={{ y: -10, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ delay: 0.1 }}
-                        >
-                            {image.title}
-                        </motion.h2>
-
-                        <motion.div
-                            className="space-y-3 text-gray-600"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.3 }}
-                        >
-                            <div>
-                                <h4 className="text-sm font-semibold text-gray-500">LOCATION</h4>
-                                <p>{image.location}</p>
-                            </div>
-
-                            <div>
-                                <h4 className="text-sm font-semibold text-gray-500">CAMERA</h4>
-                                <p>{image.camera}</p>
-                            </div>
-
-                            <div>
-                                <h4 className="text-sm font-semibold text-gray-500">SETTINGS</h4>
-                                <p>{image.settings}</p>
-                            </div>
-                        </motion.div>
-                    </div>
+                <div className="md:w-1/3 space-y-4">
+                    <motion.h2
+                        className="text-2xl font-bold text-gray-800"
+                        initial={{ y: -10, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.1 }}
+                    >
+                        {image.title}
+                    </motion.h2>
+                    <motion.div
+                        className="space-y-3 text-gray-600"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.3 }}
+                    >
+                        <div>
+                            <h4 className="text-sm font-semibold text-gray-500">LOCATION</h4>
+                            <p>{image.location}</p>
+                        </div>
+                        <div>
+                            <h4 className="text-sm font-semibold text-gray-500">CAMERA</h4>
+                            <p>{image.camera}</p>
+                        </div>
+                        <div>
+                            <h4 className="text-sm font-semibold text-gray-500">SETTINGS</h4>
+                            <p>{image.settings}</p>
+                        </div>
+                    </motion.div>
                 </div>
-            </motion.div>
+            </div>
         </motion.div>
-    );
-};
+    </motion.div>
+);
 
-// Main Gallery component
 const Gallery = () => {
     const [images] = useState(generateImageData());
     const [selectedImage, setSelectedImage] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
-    // Simulate loading
     useEffect(() => {
         const timer = setTimeout(() => setIsLoading(false), 1000);
         return () => clearTimeout(timer);
@@ -165,47 +130,36 @@ const Gallery = () => {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [handleKeyDown]);
 
+    const breakpointColumnsObj = {
+        default: 3,
+        1100: 2,
+        700: 1
+    };
+
     return (
-        <div className="h-screen px-4 pt-28">
-            {isLoading ? (
-                <div className="flex items-center justify-center h-full">
-                    <div className="animate-pulse text-gray-500">Loading gallery...</div>
-                </div>
-            ) : (
-                <AutoSizer>
-                    {({ height, width }) => {
-                        const columns = Math.max(1, Math.floor(width / COLUMN_WIDTH));
-                        const rowCount = Math.ceil(images.length / columns);
-
-                        return (
-                            <Grid
-                                columnCount={columns}
-                                columnWidth={COLUMN_WIDTH}
-                                height={height}
-                                rowCount={rowCount}
-                                rowHeight={ROW_HEIGHT}
-                                width={width}
-                                itemData={{
-                                    images,
-                                    columns,
-                                    onSelect: setSelectedImage
-                                }}
-                            >
-                                {Cell}
-                            </Grid>
-                        );
-                    }}
-                </AutoSizer>
-            )}
-
-            <AnimatePresence>
-                {selectedImage && (
-                    <ImageModal
-                        image={selectedImage}
-                        onClose={() => setSelectedImage(null)}
-                    />
+        <div className="min-h-screen w-full flex items-center justify-center bg-gray-100 px-4 pt-28 overflow-hidden">
+            <div className="w-full max-w-7xl overflow-y-scroll scrollbar-hide" style={{ maxHeight: 'calc(100vh - 7rem)' }}>
+                {isLoading ? (
+                    <div className="flex items-center justify-center h-full">
+                        <div className="animate-pulse text-gray-500">Loading gallery...</div>
+                    </div>
+                ) : (
+                    <Masonry
+                        breakpointCols={breakpointColumnsObj}
+                        className="flex gap-4"
+                        columnClassName="flex flex-col gap-4"
+                    >
+                        {images.map(image => (
+                            <ImageCard key={image.id} image={image} onSelect={setSelectedImage} />
+                        ))}
+                    </Masonry>
                 )}
-            </AnimatePresence>
+                <AnimatePresence>
+                    {selectedImage && (
+                        <ImageModal image={selectedImage} onClose={() => setSelectedImage(null)} />
+                    )}
+                </AnimatePresence>
+            </div>
         </div>
     );
 };
