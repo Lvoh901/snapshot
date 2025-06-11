@@ -9,8 +9,8 @@ const imageContext = require.context('../images/gallery', false, /\.(jpg|jpeg|pn
 const imageFiles = importAll(imageContext);
 
 // Configuration constants
-const COLUMN_WIDTH = 300;
-const ROW_HEIGHT = 300;
+const COLUMN_WIDTH = 350;
+const ROW_HEIGHT = 350;
 const GUTTER_SIZE = 16;
 
 // Generate image data programmatically
@@ -166,7 +166,7 @@ const Gallery = () => {
     }, [handleKeyDown]);
 
     return (
-        <div className="h-[calc(100vh-100px)] px-4 pt-28">
+        <div className="h-screen px-4 pt-28">
             {isLoading ? (
                 <div className="flex items-center justify-center h-full">
                     <div className="animate-pulse text-gray-500">Loading gallery...</div>
