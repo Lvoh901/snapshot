@@ -29,8 +29,8 @@ const Navigation = () => {
 
                 <div className="hidden lg:flex gap-5 items-center">
                     <Link to="/" className="cursor-pointer uppercase hover:text-gray-400">Home</Link>
-                    <Link to="/about" className="cursor-pointer uppercase hover:text-gray-400">About</Link>
-                    <Link to="/projects" className="cursor-pointer uppercase hover:text-gray-400">Projects</Link>
+                    {/* <Link to="/about" className="cursor-pointer uppercase hover:text-gray-400">About</Link> */}
+                    {/* <Link to="/projects" className="cursor-pointer uppercase hover:text-gray-400">Projects</Link> */}
                     <Link to="/gallery" className="cursor-pointer uppercase hover:text-gray-400">Gallery</Link>
                     <Link to="/contact" className="cursor-pointer uppercase hover:text-gray-400">Contact</Link>
                 </div>
@@ -47,8 +47,8 @@ const Navigation = () => {
             {isMenuOpen && (
                 <div className="flex flex-col lg:hidden bg-[#444C4C] pl-8">
                     <Link to="/" className="cursor-pointer uppercase hover:text-gray-400 py-2" onClick={toggleMenu}>Home</Link>
-                    <Link to="/about" className="cursor-pointer uppercase hover:text-gray-400 py-2" onClick={toggleMenu}>About</Link>
-                    <Link to="/projects" className="cursor-pointer uppercase hover:text-gray-400 py-2" onClick={toggleMenu}>Projects</Link>
+                    {/* <Link to="/about" className="cursor-pointer uppercase hover:text-gray-400 py-2" onClick={toggleMenu}>About</Link> */}
+                    {/* <Link to="/projects" className="cursor-pointer uppercase hover:text-gray-400 py-2" onClick={toggleMenu}>Projects</Link> */}
                     <Link to="/gallery" className="cursor-pointer uppercase hover:text-gray-400 py-2" onClick={toggleMenu}>Gallery</Link>
                     <Link to="/contact" className="cursor-pointer uppercase hover:text-gray-400 py-2" onClick={toggleMenu}>Contact</Link>
 

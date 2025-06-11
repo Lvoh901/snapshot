@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import scrollToSection from '../assets/ScrollTo';
 
 // images
@@ -11,14 +12,51 @@ import Img5 from '../images/gallery4.jpg';
 import Img6 from '../images/gallery6.jpg';
 
 const Hero = () => {
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+        damping: 10
+      }
+    }
+  };
+
   return (
     <div className="pt-12">
       {/* Hero Section */}
-      <div className="text-[#F4F4F4] text-center flex flex-col justify-center items-center" id="hero" style={{ width: "100%", height: "80vh" }}>
-        <div className="leading-5 py-20">
+      <div className="text-[#F4F4F4] text-center flex flex-col justify-center items-center relative" id="hero" style={{ width: "100%", height: "80vh" }}>
+        <div className="absolute top-0 left-0 right-0 bottom-0 bg-black bg-opacity-60"></div>
+        <div className="leading-5 py-8 relative">
           <p className="text-xl md:text-2xl lg:text-3xl">Hi, I'm</p>
           <h1 className="text-5xl lg:text-8xl font-bold" id="hero_name">Joseph.</h1>
+          <p className='pt-4 text-xl md:text-2xl'>Photographer, GIS Analyst, Biker</p>
         </div>
+
+        {/* CTA Section */}
+        <motion.div
+          className="mt-2 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start relative"
+          variants={itemVariants}
+        >
+          <motion.button
+            className="px-6 py-3 bg-indigo-600 text-white rounded-full font-medium shadow-md hover:shadow-lg transition-all"
+            whileHover={{ scale: 1.05, backgroundColor: "#4f46e5" }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Book Your Session
+          </motion.button>
+
+          <motion.button
+            className="px-6 py-3 border border-indigo-600 text-white rounded-full font-medium hover:bg-indigo-50 hover:text-indigo-600 transition-all"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            View Portfolio
+          </motion.button>
+        </motion.div>
       </div>
 
       {/* Offer Section */}
@@ -28,7 +66,7 @@ const Hero = () => {
             <img src={Arrow} alt='arrow' className='animate-bounce w-8 h-8' />
           </button>
 
-          <h1 className='text-3xl sm:text-4xl lg:text-5xl font-bold' id='hero_name'>My Offer Package</h1>
+          <h1 className='text-3xl sm:text-4xl lg:text-5xl font-bold' id='hero_name'>My Service Package</h1>
         </div>
 
         {/* Services Section */}

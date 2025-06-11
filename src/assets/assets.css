@@ -1,33 +1,12 @@
-/* carousel */
 .slider-container {
-  overflow: hidden;
-  width: 90vw;
-  max-width: 90vw;
-  margin: auto;
+  max-width: 100%;
+}
+.slider-item {
   position: relative;
 }
-
-.slider-wrapper {
-  display: flex;
-  gap: 2px;
-  animation: slide 60s infinite linear;
+.slider-caption h3 {
+  margin: 0.5rem 0 0.25rem;
 }
-
-.slider-item {
-  min-width: 50%;
+.slider-caption p {
+  margin: 0;
 }
-
-.slider-item img {
-  width: 100%; /* Make the image fill the container */
-  height: auto;
-}
-
-@keyframes slide {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-600%);
-  }
-}
-/* carousel */
