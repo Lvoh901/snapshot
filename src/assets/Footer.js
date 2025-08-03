@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Icon from '../images/logo.png';
-import Phone from '../images/phone.png';
-import Mail from '../images/mail.png';
 import { MailIcon, PhoneIcon } from 'lucide-react';
 
 const Footer = () => {
