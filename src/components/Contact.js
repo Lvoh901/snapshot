@@ -2,11 +2,11 @@ import React from 'react'
 
 const Contact = () => {
   return (
-    <div className='h-screen flex flex-col justify-center items-center bg-gray-100'>
-      <div className="p-16 flex flex-col justify-center items-center text-center space-y-8">
-        <h1 className="text-4xl lg:text-5xl font-bold" id="hero_name">Let's Work Together</h1>
+    <div className='h-screen flex flex-col justify-center items-center bg-background'>
+      <div className="p-8 flex flex-col justify-center items-center text-center space-y-8">
+        <h1 className="font-display font-bold">Let's Work Together</h1>
 
-        <p>Am open to new and ongoing projects. I have three days open in the coming week for new projects. Leave your details for a response.</p>
+        <p className='font-light mx-auto max-w-3xl'>Am open to new and ongoing projects. I have three days open in the coming week for new projects. Leave your details for a response.</p>
 
         <form className="w-full max-w-lg">
           <div className="flex flex-col space-y-8">

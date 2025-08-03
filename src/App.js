@@ -11,7 +11,7 @@ import NotFound from './components/NotFound';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App font-sans">
       <Navigation />
 
       <Routes>

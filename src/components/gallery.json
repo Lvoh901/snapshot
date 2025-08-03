@@ -1,0 +1,639 @@
+[
+  {
+    "id": "1",
+    "name": "Clip",
+    "location": "/photos/clip.jpeg",
+    "geographical_location": "Kenya",
+    "technical_details": {
+      "f_stop": "f/2.8",
+      "iso": "100",
+      "shutter": "1/250s",
+      "zoom": "50mm"
+    },
+    "setting": "outdoors"
+  },
+  {
+    "id": "2",
+    "name": "Clip 1",
+    "location": "/photos/clip1.jpeg",
+    "geographical_location": "Iceland",
+    "technical_details": {
+      "f_stop": "f/4.0",
+      "iso": "200",
+      "shutter": "1/125s",
+      "zoom": "35mm"
+    },
+    "setting": "indoors"
+  },
+  {
+    "id": "3",
+    "name": "Clip 2",
+    "location": "/photos/clip2.jpeg",
+    "geographical_location": "Norway",
+    "technical_details": {
+      "f_stop": "f/1.8",
+      "iso": "400",
+      "shutter": "1/500s",
+      "zoom": "85mm"
+    },
+    "setting": "outdoors"
+  },
+  {
+    "id": "4",
+    "name": "Clip 3",
+    "location": "/photos/clip3.jpeg",
+    "geographical_location": "Alaska",
+    "technical_details": {
+      "f_stop": "f/5.6",
+      "iso": "100",
+      "shutter": "1/60s",
+      "zoom": "24mm"
+    },
+    "setting": "indoors"
+  },
+  {
+    "id": "5",
+    "name": "Clip 4",
+    "location": "/photos/clip4.jpeg",
+    "geographical_location": "Scotland",
+    "technical_details": {
+      "f_stop": "f/2.8",
+      "iso": "100",
+      "shutter": "1/250s",
+      "zoom": "50mm"
+    },
+    "setting": "outdoors"
+  },
+  {
+    "id": "6",
+    "name": "Clip 5",
+    "location": "/photos/clip5.jpeg",
+    "geographical_location": "Peru",
+    "technical_details": {
+      "f_stop": "f/4.0",
+      "iso": "200",
+      "shutter": "1/125s",
+      "zoom": "35mm"
+    },
+    "setting": "indoors"
+  },
+  {
+    "id": "7",
+    "name": "Clip 6",
+    "location": "/photos/clip6.jpeg",
+    "geographical_location": "Japan",
+    "technical_details": {
+      "f_stop": "f/1.8",
+      "iso": "400",
+      "shutter": "1/500s",
+      "zoom": "85mm"
+    },
+    "setting": "outdoors"
+  },
+  {
+    "id": "8",
+    "name": "Clip 7",
+    "location": "/photos/clip7.jpeg",
+    "geographical_location": "Brazil",
+    "technical_details": {
+      "f_stop": "f/5.6",
+      "iso": "100",
+      "shutter": "1/60s",
+      "zoom": "24mm"
+    },
+    "setting": "indoors"
+  },
+  {
+    "id": "9",
+    "name": "Clip 8",
+    "location": "/photos/clip8.jpeg",
+    "geographical_location": "Australia",
+    "technical_details": {
+      "f_stop": "f/2.8",
+      "iso": "100",
+      "shutter": "1/250s",
+      "zoom": "50mm"
+    },
+    "setting": "outdoors"
+  },
+  {
+    "id": "10",
+    "name": "Gallery 1",
+    "location": "/photos/gallery (1).jpg",
+    "geographical_location": "France",
+    "technical_details": {
+      "f_stop": "f/4.0",
+      "iso": "200",
+      "shutter": "1/125s",
+      "zoom": "35mm"
+    },
+    "setting": "indoors"
+  },
+  {
+    "id": "11",
+    "name": "Gallery 1 PNG",
+    "location": "/photos/gallery (1).png",
+    "geographical_location": "Germany",
+    "technical_details": {
+      "f_stop": "f/1.8",
+      "iso": "400",
+      "shutter": "1/500s",
+      "zoom": "85mm"
+    },
+    "setting": "outdoors"
+  },
+  {
+    "id": "12",
+    "name": "Gallery 10",
+    "location": "/photos/gallery (10).jpg",
+    "geographical_location": "Italy",
+    "technical_details": {
+      "f_stop": "f/5.6",
+      "iso": "100",
+      "shutter": "1/60s",
+      "zoom": "24mm"
+    },
+    "setting": "indoors"
+  },
+  {
+    "id": "13",
+    "name": "Gallery 11",
+    "location": "/photos/gallery (11).jpg",
+    "geographical_location": "Mexico",
+    "technical_details": {
+      "f_stop": "f/2.8",
+      "iso": "100",
+      "shutter": "1/250s",
+      "zoom": "50mm"
+    },
+    "setting": "outdoors"
+  },
+  {
+    "id": "14",
+    "name": "Gallery 12",
+    "location": "/photos/gallery (12).jpg",
+    "geographical_location": "USA",
+    "technical_details": {
+      "f_stop": "f/4.0",
+      "iso": "200",
+      "shutter": "1/125s",
+      "zoom": "35mm"
+    },
+    "setting": "indoors"
+  },
+  {
+    "id": "15",
+    "name": "Gallery 13",
+    "location": "/photos/gallery (13).jpg",
+    "geographical_location": "Greece",
+    "technical_details": {
+      "f_stop": "f/1.8",
+      "iso": "400",
+      "shutter": "1/500s",
+      "zoom": "85mm"
+    },
+    "setting": "outdoors"
+  },
+  {
+    "id": "16",
+    "name": "Gallery 14",
+    "location": "/photos/gallery (14).jpg",
+    "geographical_location": "Canada",
+    "technical_details": {
+      "f_stop": "f/5.6",
+      "iso": "100",
+      "shutter": "1/60s",
+      "zoom": "24mm"
+    },
+    "setting": "indoors"
+  },
+  {
+    "id": "17",
+    "name": "Gallery 15",
+    "location": "/photos/gallery (15).jpg",
+    "geographical_location": "Egypt",
+    "technical_details": {
+      "f_stop": "f/2.8",
+      "iso": "100",
+      "shutter": "1/250s",
+      "zoom": "50mm"
+    },
+    "setting": "outdoors"
+  },
+  {
+    "id": "18",
+    "name": "Gallery 16",
+    "location": "/photos/gallery (16).jpg",
+    "geographical_location": "China",
+    "technical_details": {
+      "f_stop": "f/4.0",
+      "iso": "200",
+      "shutter": "1/125s",
+      "zoom": "35mm"
+    },
+    "setting": "indoors"
+  },
+  {
+    "id": "19",
+    "name": "Gallery 17",
+    "location": "/photos/gallery (17).jpg",
+    "geographical_location": "India",
+    "technical_details": {
+      "f_stop": "f/1.8",
+      "iso": "400",
+      "shutter": "1/500s",
+      "zoom": "85mm"
+    },
+    "setting": "outdoors"
+  },
+  {
+    "id": "20",
+    "name": "Gallery 18",
+    "location": "/photos/gallery (18).jpg",
+    "geographical_location": "South Africa",
+    "technical_details": {
+      "f_stop": "f/5.6",
+      "iso": "100",
+      "shutter": "1/60s",
+      "zoom": "24mm"
+    },
+    "setting": "indoors"
+  },
+  {
+    "id": "21",
+    "name": "Gallery 19",
+    "location": "/photos/gallery (19).jpg",
+    "geographical_location": "New Zealand",
+    "technical_details": {
+      "f_stop": "f/2.8",
+      "iso": "100",
+      "shutter": "1/250s",
+      "zoom": "50mm"
+    },
+    "setting": "outdoors"
+  },
+  {
+    "id": "22",
+    "name": "Gallery 2",
+    "location": "/photos/gallery (2).jpg",
+    "geographical_location": "Argentina",
+    "technical_details": {
+      "f_stop": "f/4.0",
+      "iso": "200",
+      "shutter": "1/125s",
+      "zoom": "35mm"
+    },
+    "setting": "indoors"
+  },
+  {
+    "id": "23",
+    "name": "Gallery 2 PNG",
+    "location": "/photos/gallery (2).png",
+    "geographical_location": "Chile",
+    "technical_details": {
+      "f_stop": "f/1.8",
+      "iso": "400",
+      "shutter": "1/500s",
+      "zoom": "85mm"
+    },
+    "setting": "outdoors"
+  },
+  {
+    "id": "24",
+    "name": "Gallery 20",
+    "location": "/photos/gallery (20).jpg",
+    "geographical_location": "Colombia",
+    "technical_details": {
+      "f_stop": "f/5.6",
+      "iso": "100",
+      "shutter": "1/60s",
+      "zoom": "24mm"
+    },
+    "setting": "indoors"
+  },
+  {
+    "id": "25",
+    "name": "Gallery 21",
+    "location": "/photos/gallery (21).jpg",
+    "geographical_location": "Brazil",
+    "technical_details": {
+      "f_stop": "f/2.8",
+      "iso": "100",
+      "shutter": "1/250s",
+      "zoom": "50mm"
+    },
+    "setting": "outdoors"
+  },
+  {
+    "id": "26",
+    "name": "Gallery 22",
+    "location": "/photos/gallery (22).jpg",
+    "geographical_location": "Spain",
+    "technical_details": {
+      "f_stop": "f/4.0",
+      "iso": "200",
+      "shutter": "1/125s",
+      "zoom": "35mm"
+    },
+    "setting": "indoors"
+  },
+  {
+    "id": "27",
+    "name": "Gallery 23",
+    "location": "/photos/gallery (23).jpg",
+    "geographical_location": "Portugal",
+    "technical_details": {
+      "f_stop": "f/1.8",
+      "iso": "400",
+      "shutter": "1/500s",
+      "zoom": "85mm"
+    },
+    "setting": "outdoors"
+  },
+  {
+    "id": "28",
+    "name": "Gallery 24",
+    "location": "/photos/gallery (24).jpg",
+    "geographical_location": "Ireland",
+    "technical_details": {
+      "f_stop": "f/5.6",
+      "iso": "100",
+      "shutter": "1/60s",
+      "zoom": "24mm"
+    },
+    "setting": "indoors"
+  },
+  {
+    "id": "29",
+    "name": "Gallery 25",
+    "location": "/photos/gallery (25).jpg",
+    "geographical_location": "Sweden",
+    "technical_details": {
+      "f_stop": "f/2.8",
+      "iso": "100",
+      "shutter": "1/250s",
+      "zoom": "50mm"
+    },
+    "setting": "outdoors"
+  },
+  {
+    "id": "30",
+    "name": "Gallery 26",
+    "location": "/photos/gallery (26).jpg",
+    "geographical_location": "Finland",
+    "technical_details": {
+      "f_stop": "f/4.0",
+      "iso": "200",
+      "shutter": "1/125s",
+      "zoom": "35mm"
+    },
+    "setting": "indoors"
+  },
+  {
+    "id": "31",
+    "name": "Gallery 27",
+    "location": "/photos/gallery (27).jpg",
+    "geographical_location": "Denmark",
+    "technical_details": {
+      "f_stop": "f/1.8",
+      "iso": "400",
+      "shutter": "1/500s",
+      "zoom": "85mm"
+    },
+    "setting": "outdoors"
+  },
+  {
+    "id": "32",
+    "name": "Gallery 28",
+    "location": "/photos/gallery (28).jpg",
+    "geographical_location": "Netherlands",
+    "technical_details": {
+      "f_stop": "f/5.6",
+      "iso": "100",
+      "shutter": "1/60s",
+      "zoom": "24mm"
+    },
+    "setting": "indoors"
+  },
+  {
+    "id": "33",
+    "name": "Gallery 29",
+    "location": "/photos/gallery (29).jpg",
+    "geographical_location": "Belgium",
+    "technical_details": {
+      "f_stop": "f/2.8",
+      "iso": "100",
+      "shutter": "1/250s",
+      "zoom": "50mm"
+    },
+    "setting": "outdoors"
+  },
+  {
+    "id": "34",
+    "name": "Gallery 3",
+    "location": "/photos/gallery (3).jpg",
+    "geographical_location": "Switzerland",
+    "technical_details": {
+      "f_stop": "f/4.0",
+      "iso": "200",
+      "shutter": "1/125s",
+      "zoom": "35mm"
+    },
+    "setting": "indoors"
+  },
+  {
+    "id": "35",
+    "name": "Gallery 30",
+    "location": "/photos/gallery (30).jpg",
+    "geographical_location": "Austria",
+    "technical_details": {
+      "f_stop": "f/1.8",
+      "iso": "400",
+      "shutter": "1/500s",
+      "zoom": "85mm"
+    },
+    "setting": "outdoors"
+  },
+  {
+    "id": "36",
+    "name": "Gallery 31",
+    "location": "/photos/gallery (31).jpg",
+    "geographical_location": "Czech Republic",
+    "technical_details": {
+      "f_stop": "f/5.6",
+      "iso": "100",
+      "shutter": "1/60s",
+      "zoom": "24mm"
+    },
+    "setting": "indoors"
+  },
+  {
+    "id": "37",
+    "name": "Gallery 32",
+    "location": "/photos/gallery (32).jpg",
+    "geographical_location": "Poland",
+    "technical_details": {
+      "f_stop": "f/2.8",
+      "iso": "100",
+      "shutter": "1/250s",
+      "zoom": "50mm"
+    },
+    "setting": "outdoors"
+  },
+  {
+    "id": "38",
+    "name": "Gallery 4",
+    "location": "/photos/gallery (4).jpg",
+    "geographical_location": "Hungary",
+    "technical_details": {
+      "f_stop": "f/4.0",
+      "iso": "200",
+      "shutter": "1/125s",
+      "zoom": "35mm"
+    },
+    "setting": "indoors"
+  },
+  {
+    "id": "39",
+    "name": "Gallery 5",
+    "location": "/photos/gallery (5).jpg",
+    "geographical_location": "Romania",
+    "technical_details": {
+      "f_stop": "f/1.8",
+      "iso": "400",
+      "shutter": "1/500s",
+      "zoom": "85mm"
+    },
+    "setting": "outdoors"
+  },
+  {
+    "id": "40",
+    "name": "Gallery 6",
+    "location": "/photos/gallery (6).jpg",
+    "geographical_location": "Bulgaria",
+    "technical_details": {
+      "f_stop": "f/5.6",
+      "iso": "100",
+      "shutter": "1/60s",
+      "zoom": "24mm"
+    },
+    "setting": "indoors"
+  },
+  {
+    "id": "41",
+    "name": "Gallery 7",
+    "location": "/photos/gallery (7).jpg",
+    "geographical_location": "Croatia",
+    "technical_details": {
+      "f_stop": "f/2.8",
+      "iso": "100",
+      "shutter": "1/250s",
+      "zoom": "50mm"
+    },
+    "setting": "outdoors"
+  },
+  {
+    "id": "42",
+    "name": "Gallery 8",
+    "location": "/photos/gallery (8).jpg",
+    "geographical_location": "Serbia",
+    "technical_details": {
+      "f_stop": "f/4.0",
+      "iso": "200",
+      "shutter": "1/125s",
+      "zoom": "35mm"
+    },
+    "setting": "indoors"
+  },
+  {
+    "id": "43",
+    "name": "Gallery 9",
+    "location": "/photos/gallery (9).jpg",
+    "geographical_location": "Ukraine",
+    "technical_details": {
+      "f_stop": "f/1.8",
+      "iso": "400",
+      "shutter": "1/500s",
+      "zoom": "85mm"
+    },
+    "setting": "outdoors"
+  },
+  {
+    "id": "44",
+    "name": "Image 1",
+    "location": "/photos/img1.jpg",
+    "geographical_location": "Russia",
+    "technical_details": {
+      "f_stop": "f/5.6",
+      "iso": "100",
+      "shutter": "1/60s",
+      "zoom": "24mm"
+    },
+    "setting": "indoors"
+  },
+  {
+    "id": "45",
+    "name": "Image 2",
+    "location": "/photos/img2.jpg",
+    "geographical_location": "Turkey",
+    "technical_details": {
+      "f_stop": "f/2.8",
+      "iso": "100",
+      "shutter": "1/250s",
+      "zoom": "50mm"
+    },
+    "setting": "outdoors"
+  },
+  {
+    "id": "46",
+    "name": "Image 3",
+    "location": "/photos/img3.jpg",
+    "geographical_location": "Kazakhstan",
+    "technical_details": {
+      "f_stop": "f/4.0",
+      "iso": "200",
+      "shutter": "1/125s",
+      "zoom": "35mm"
+    },
+    "setting": "indoors"
+  },
+  {
+    "id": "47",
+    "name": "Image 4",
+    "location": "/photos/img4.jpg",
+    "geographical_location": "Mongolia",
+    "technical_details": {
+      "f_stop": "f/1.8",
+      "iso": "400",
+      "shutter": "1/500s",
+      "zoom": "85mm"
+    },
+    "setting": "outdoors"
+  },
+  {
+    "id": "48",
+    "name": "Image 5",
+    "location": "/photos/img5.jpg",
+    "geographical_location": "China",
+    "technical_details": {
+      "f_stop": "f/5.6",
+      "iso": "100",
+      "shutter": "1/60s",
+      "zoom": "24mm"
+    },
+    "setting": "indoors"
+  },
+  {
+    "id": "49",
+    "name": "Image 6",
+    "location": "/photos/img6.jpg",
+    "geographical_location": "India",
+    "technical_details": {
+      "f_stop": "f/2.8",
+      "iso": "100",
+      "shutter": "1/250s",
+      "zoom": "50mm"
+    },
+    "setting": "outdoors"
+  }
+]
