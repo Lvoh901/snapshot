@@ -1,18 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Masonry from 'react-masonry-css';
 import galleryData from './gallery.json';
 
-const ITEMS_PER_PAGE = 6;
+const ITEMS_PER_PAGE = 8; // Increased slightly for better masonry flow
 
 const fadeInCard = {
-    hidden: { opacity: 0, y: 20, scale: 0.95 },
-    visible: { opacity: 1, y: 0, scale: 1 },
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0 },
 };
 
 const fadeInModal = {
-    hidden: { opacity: 0, scale: 0.95 },
+    hidden: { opacity: 0, scale: 0.98 },
     visible: { opacity: 1, scale: 1 },
-    exit: { opacity: 0, scale: 0.95 },
+    exit: { opacity: 0, scale: 0.98 },
+};
+
+const breakpointColumnsObj = {
+    default: 3,
+    1024: 3,
+    768: 2,
+    640: 1
 };
 
 const Gallery = () => {
@@ -23,10 +31,9 @@ const Gallery = () => {
     const endIdx = startIdx + ITEMS_PER_PAGE;
     const currentItems = galleryData.slice(startIdx, endIdx);
 
-    // Ensure page loads from the top on mount
     useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [currentPage]);
 
     const goToPage = (page) => {
         if (page < 1 || page > totalPages) return;
@@ -35,120 +42,196 @@ const Gallery = () => {
 
     const openImage = (item) => {
         setSelectedImage(item);
-        document.body.style.overflow = 'hidden'; // Prevent background scroll
+        document.body.style.overflow = 'hidden';
     };
 
     const closeImage = () => {
         setSelectedImage(null);
-        document.body.style.overflow = ''; // Restore scroll
+        document.body.style.overflow = '';
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 pt-28 px-4 md:px-10 lg:px-20">
-            <h1 className="text-4xl font-extrabold text-center text-[#003366] mb-10 underline decoration-[#FCBA04] underline-offset-8">
-                Photo Gallery
-            </h1>
+        <div className="min-h-screen bg-background pt-32 pb-20 px-4 md:px-10 lg:px-20">
+            {/* Header Area */}
+            <div className="mb-16 text-center">
+                <p className="text-accent uppercase tracking-[0.2em] text-sm font-semibold mb-4">Portfolio</p>
+                <h1 className="text-5xl md:text-6xl font-display font-bold text-primary mb-6">
+                    The Exhibition
+                </h1>
+                <p className="text-secondary/80 font-light text-lg max-w-2xl mx-auto">
+                    A curated collection of moments captured across various settings and landscapes.
+                </p>
+                <div className="w-24 h-1 bg-accent mx-auto mt-8 opacity-50"></div>
+            </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                <AnimatePresence>
-                    {currentItems.map((item) => (
+            {/* Masonry Grid */}
+            <Masonry
+                breakpointCols={breakpointColumnsObj}
+                className="flex w-auto -ml-8"
+                columnClassName="pl-8 bg-clip-padding"
+            >
+                    {currentItems.map((item, idx) => (
                         <motion.div
                             key={item.id}
                             variants={fadeInCard}
                             initial="hidden"
                             animate="visible"
                             exit="hidden"
-                            transition={{ duration: 0.5, delay: 0.1 }}
-                            className="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 group overflow-hidden relative"
+                            transition={{ duration: 0.6, delay: idx * 0.05, ease: "easeOut" }}
+                            className="relative mb-8 group overflow-hidden rounded-sm cursor-pointer shadow-sm hover:shadow-2xl transition-all duration-500 bg-neutral/10"
+                            onClick={() => openImage(item)}
+                            tabIndex={0}
+                            role="button"
+                            aria-label={`View full image of ${item.name}`}
+                            onKeyDown={e => {
+                                if (e.key === 'Enter' || e.key === ' ') openImage(item);
+                            }}
                         >
-                            {/* Overlay covers the whole card */}
-                            <div className="absolute inset-0 z-10 bg-black/80 text-white opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-center items-center px-4 text-sm pointer-events-none">
-                                <h3>Location: {item.geographical_location}</h3>
-                                <h4>Setting: {item.setting}</h4>
-                                <div className="mt-2 space-y-1 text-gray-300 text-xs">
-                                    <p><strong>F-Stop:</strong> {item.technical_details.f_stop}</p>
-                                    <p><strong>ISO:</strong> {item.technical_details.iso}</p>
-                                    <p><strong>Shutter:</strong> {item.technical_details.shutter}</p>
-                                    <p><strong>Zoom:</strong> {item.technical_details.zoom}</p>
+                            {/* Edge-to-edge image */}
+                            <img
+                                src={item.location}
+                                alt={item.name}
+                                className="w-full block transform group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                                loading="lazy"
+                            />
+
+                            {/* Deep creeping gradient */}
+                            <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+                            {/* Exhibition-style technical plaque */}
+                            <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 flex flex-col justify-end translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out pointer-events-none">
+                                <h3 className="text-white font-display text-2xl mb-1">{item.name}</h3>
+                                <p className="text-white/70 text-xs tracking-wider uppercase mb-4">{item.geographical_location} &mdash; {item.setting}</p>
+                                
+                                <div className="flex flex-wrap gap-x-4 gap-y-2 text-[10px] text-accent tracking-widest uppercase font-semibold border-t border-white/20 pt-4">
+                                    <span>F/{item.technical_details.f_stop}</span>
+                                    <span>ISO {item.technical_details.iso}</span>
+                                    <span>{item.technical_details.shutter}</span>
+                                    <span>{item.technical_details.zoom}</span>
                                 </div>
-                            </div>
-                            
-                            <div
-                                className="relative w-full h-64 cursor-pointer"
-                                onClick={() => openImage(item)}
-                                tabIndex={0}
-                                role="button"
-                                aria-label={`View full image of ${item.name}`}
-                                onKeyDown={e => {
-                                    if (e.key === 'Enter' || e.key === ' ') openImage(item);
-                                }}
-                            >
-                                <img
-                                    src={item.location}
-                                    alt={item.name}
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                />
-                            </div>
-                            <div className="py-4 px-3 text-center">
-                                <h3 className="font-semibold text-gray-800 text-base">{item.name}</h3>
                             </div>
                         </motion.div>
                     ))}
-                </AnimatePresence>
-            </div>
+            </Masonry>
+
+            {/* Pagination */}
+            {totalPages > 1 && (
+                <div className="flex justify-center items-center mt-16 pt-8 border-t border-neutral/20 gap-3">
+                    <button
+                        onClick={() => goToPage(currentPage - 1)}
+                        disabled={currentPage === 1}
+                        className={`px-6 py-3 rounded-sm transition-all text-xs tracking-widest uppercase font-semibold border ${
+                            currentPage === 1
+                                ? 'border-neutral/40 text-neutral/50 cursor-not-allowed'
+                                : 'border-primary text-primary hover:bg-primary hover:text-white'
+                        }`}
+                    >
+                        Previous
+                    </button>
+                    <div className="hidden sm:flex gap-2">
+                        {Array.from({ length: totalPages }).map((_, i) => (
+                            <button
+                                key={i}
+                                onClick={() => goToPage(i + 1)}
+                                className={`w-10 h-10 rounded-full flex items-center justify-center text-xs font-semibold transition-all ${
+                                    currentPage === i + 1
+                                        ? 'bg-accent text-primary'
+                                        : 'text-secondary hover:bg-neutral/30'
+                                }`}
+                            >
+                                {i + 1}
+                            </button>
+                        ))}
+                    </div>
+                    <button
+                        onClick={() => goToPage(currentPage + 1)}
+                        disabled={currentPage === totalPages}
+                        className={`px-6 py-3 rounded-sm transition-all text-xs tracking-widest uppercase font-semibold border ${
+                            currentPage === totalPages
+                                ? 'border-neutral/40 text-neutral/50 cursor-not-allowed'
+                                : 'border-primary text-primary hover:bg-primary hover:text-white'
+                        }`}
+                    >
+                        Next
+                    </button>
+                </div>
+            )}
 
             {/* Full Image Modal */}
             <AnimatePresence>
                 {selectedImage && (
                     <motion.div
-                        className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+                        className="fixed inset-0 z-[100] flex items-center justify-center bg-primary/95 backdrop-blur-md p-4 sm:p-8"
                         initial="hidden"
                         animate="visible"
                         exit="exit"
                         variants={fadeInModal}
-                        transition={{ duration: 0.2 }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
                     >
                         <div
-                            className="absolute inset-0"
+                            className="absolute inset-0 cursor-zoom-out"
                             onClick={closeImage}
                             aria-label="Close full image"
                             tabIndex={-1}
                         />
-                        <div className="relative z-10 max-w-3xl w-full mx-4">
+                        <div className="relative z-10 max-w-5xl w-full flex flex-col lg:flex-row gap-8 items-center bg-transparent">
+                            
+                            {/* Close Button top right of screen really elegant */}
                             <button
                                 onClick={closeImage}
-                                className="absolute top-2 right-2 text-white bg-black/60 rounded-full p-2 hover:bg-black/80 focus:outline-none"
+                                className="fixed top-6 right-6 lg:top-10 lg:right-10 text-white/50 hover:text-accent transition-colors focus:outline-none z-50 group flex items-center gap-2"
                                 aria-label="Close"
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                <span className="uppercase tracking-widest text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity -translate-x-2 group-hover:translate-x-0 hidden sm:block">Close</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 lg:h-10 lg:w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={1} d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                             </button>
-                            <img
-                                src={selectedImage.location}
-                                alt={selectedImage.name}
-                                className="w-full max-h-[80vh] object-contain rounded-lg shadow-2xl bg-white"
-                            />
-                            <div className="mt-4 bg-white/90 rounded-lg p-4 text-gray-800 shadow">
-                                <h2 className="text-xl font-bold mb-2">{selectedImage.name}</h2>
-                                <div className="flex flex-wrap gap-4 text-sm">
+
+                            {/* Image Container */}
+                            <div className="w-full lg:w-2/3 flex justify-center">
+                                <img
+                                    src={selectedImage.location}
+                                    alt={selectedImage.name}
+                                    className="max-h-[70vh] lg:max-h-[85vh] object-contain shadow-2xl rounded-sm"
+                                />
+                            </div>
+
+                            {/* Details Container */}
+                            <div className="w-full lg:w-1/3 text-white">
+                                <p className="text-accent uppercase tracking-[0.2em] text-[10px] font-semibold mb-2">Exhibition Detail</p>
+                                <h2 className="text-3xl lg:text-4xl font-display font-medium mb-4">{selectedImage.name}</h2>
+                                
+                                <div className="space-y-6 mt-8">
                                     <div>
-                                        <span className="font-semibold">Location:</span> {selectedImage.geographical_location}
+                                        <h4 className="text-white/50 text-[10px] uppercase tracking-widest mb-1">Location</h4>
+                                        <p className="font-light text-sm">{selectedImage.geographical_location}</p>
                                     </div>
                                     <div>
-                                        <span className="font-semibold">Setting:</span> {selectedImage.setting}
+                                        <h4 className="text-white/50 text-[10px] uppercase tracking-widest mb-1">Setting</h4>
+                                        <p className="font-light text-sm">{selectedImage.setting}</p>
                                     </div>
-                                    <div>
-                                        <span className="font-semibold">F-Stop:</span> {selectedImage.technical_details.f_stop}
-                                    </div>
-                                    <div>
-                                        <span className="font-semibold">ISO:</span> {selectedImage.technical_details.iso}
-                                    </div>
-                                    <div>
-                                        <span className="font-semibold">Shutter:</span> {selectedImage.technical_details.shutter}
-                                    </div>
-                                    <div>
-                                        <span className="font-semibold">Zoom:</span> {selectedImage.technical_details.zoom}
+                                    
+                                    <div className="border-t border-white/10 pt-6 mt-6">
+                                        <h4 className="text-white/50 text-[10px] uppercase tracking-widest mb-4">Technical Specs</h4>
+                                        <div className="grid grid-cols-2 gap-y-4 gap-x-2">
+                                            <div>
+                                                <span className="block text-accent text-[9px] uppercase tracking-widest">Aperture</span>
+                                                <span className="font-medium text-sm">f/{selectedImage.technical_details.f_stop}</span>
+                                            </div>
+                                            <div>
+                                                <span className="block text-accent text-[9px] uppercase tracking-widest">ISO Speed</span>
+                                                <span className="font-medium text-sm">{selectedImage.technical_details.iso}</span>
+                                            </div>
+                                            <div>
+                                                <span className="block text-accent text-[9px] uppercase tracking-widest">Shutter</span>
+                                                <span className="font-medium text-sm">{selectedImage.technical_details.shutter}</span>
+                                            </div>
+                                            <div>
+                                                <span className="block text-accent text-[9px] uppercase tracking-widest">Focal Length</span>
+                                                <span className="font-medium text-sm">{selectedImage.technical_details.zoom}</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -157,35 +240,6 @@ const Gallery = () => {
                 )}
             </AnimatePresence>
 
-            {/* Pagination */}
-            <div className="flex justify-center items-center mt-10 flex-wrap gap-2 pb-3">
-                <button
-                    onClick={() => goToPage(currentPage - 1)}
-                    disabled={currentPage === 1}
-                    className={`px-4 py-2 rounded transition-all text-sm ${currentPage === 1
-                            ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                            : 'bg-[#003366] text-white hover:bg-yellow-500 hover:text-black font-medium uppercase'
-                        }`}
-                >
-                    Previous
-                </button>
-                <button
-                    className="px-3 py-1 rounded text-sm font-medium bg-blue-800 text-white cursor-default"
-                    disabled
-                >
-                    {currentPage}
-                </button>
-                <button
-                    onClick={() => goToPage(currentPage + 1)}
-                    disabled={currentPage === totalPages}
-                    className={`px-4 py-2 rounded text-sm ${currentPage === totalPages
-                            ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                            : 'bg-[#003366] text-white hover:bg-yellow-500 hover:text-black font-medium uppercase'
-                        }`}
-                >
-                    Next
-                </button>
-            </div>
         </div>
     );
 };

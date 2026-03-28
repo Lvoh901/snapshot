@@ -13,14 +13,14 @@ const Footer = () => {
     };
 
     return (
-        <footer className="bg-secondary text-white font-sans">
+        <footer className="bg-primary text-white font-sans border-t border-white/10">
             <div className="max-w-7xl mx-auto px-4 sm:px-8 py-10">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-8">
                     {/* Brand and Logo */}
                     <div className="flex flex-col items-center md:items-start gap-2">
                         <Link to="/" className="flex items-center gap-2 mb-2">
                             <img src={Icon} className="w-10 h-10" alt="icon" />
-                            <span className="font-display font-bold">Homologous</span>
+                            <span className="font-display font-bold text-2xl tracking-wide">Homologous</span>
                         </Link>
                         <p className="text-center md:text-left max-w-xs font-light">
                             Capturing moments, telling stories. Professional photography for every occasion.
@@ -42,15 +42,15 @@ const Footer = () => {
                 </div>
 
                 {/* Divider */}
-                <div className="border-t border-gray-200 my-8"></div>
+                <div className="border-t border-white/10 my-10"></div>
                 {/* Footer Links */}
                 <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-                    <nav className="flex gap-6 text-sm font-medium">
-                        <Link to="/" className="hover:text-[#FCBA04] transition">Home</Link>
-                        <Link to="/gallery" className="hover:text-[#FCBA04] transition">Gallery</Link>
-                        <Link to="/contact" className="hover:text-[#FCBA04] transition">Contact</Link>
+                    <nav className="flex gap-8 text-xs font-semibold tracking-widest uppercase items-center">
+                        <Link to="/" className="text-white/80 hover:text-accent transition-colors duration-300">Home</Link>
+                        <Link to="/gallery" className="text-white/80 hover:text-accent transition-colors duration-300">Gallery</Link>
+                        <Link to="/contact" className="text-white/80 hover:text-accent transition-colors duration-300">Contact</Link>
                     </nav>
-                    <small className="text-neutral text-xs text-center md:text-right">
+                    <small className="text-neutral/80 text-xs text-center md:text-right">
                         &copy; Homologous | <strong>{getCurrentYearAndMonth()}</strong>. All Rights Reserved.
                     </small>
                 </div>

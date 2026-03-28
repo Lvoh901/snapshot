@@ -61,10 +61,10 @@ const Navigation = () => {
     }, [location.pathname]);
 
     return (
-        <div className="z-50 fixed w-full bg-gray-800 pb-5">
+        <div className="z-50 fixed w-full bg-primary/90 backdrop-blur-md border-b border-white/10 transition-all duration-300">
             {/* Top Navigation Bar */}
             <motion.section
-                className="flex items-center justify-between pt-4 pb-1 container mx-auto px-4 md:px-8"
+                className="flex items-center justify-between py-4 container mx-auto px-4 md:px-8"
                 initial="hidden"
                 animate="visible"
                 variants={navVariants}
@@ -77,7 +77,7 @@ const Navigation = () => {
                             <motion.div key={link.to} custom={i} initial="hidden" animate="visible" variants={linkVariants}>
                                 <Link
                                     to={link.to}
-                                    className="uppercase font-light hover:font-medium small transition-colors duration-200 px-2 py-1 rounded hover:underline text-gray-100"
+                                    className="uppercase tracking-widest text-xs font-semibold transition-colors duration-300 px-4 py-2 hover:text-accent text-white/90"
                                 >
                                     {link.label}
                                 </Link>
@@ -87,7 +87,7 @@ const Navigation = () => {
 
                     {/* Center: Logo */}
                     <div className="flex flex-col items-center justify-center">
-                        <a href='/' className='font-light hover:text-[#ffd800]'><img src="/logo.png" className="w-12 h-auto" alt="Logo" /></a>
+                        <a href='/' className='font-light hover:text-accent transition-colors duration-200'><img src="/logo.png" className="w-12 h-auto" alt="Logo" /></a>
                     </div>
                     {/* Right: Social Icons */}
                     <div className="flex gap-3">
@@ -112,7 +112,7 @@ const Navigation = () => {
                 <div className="md:hidden flex items-center w-full justify-between">
                     {/* Logo (mobile) */}
                     <div className="flex flex-col items-center justify-center">
-                        <a href='/' className='font-light hover:text-[#ffd800]'><img src="/logo.png" className="w-16 h-auto" alt="Logo" /></a>
+                        <a href='/' className='font-light hover:text-accent transition-colors duration-200'><img src="/logo.png" className="w-16 h-auto" alt="Logo" /></a>
                     </div>
 
                     <button
@@ -129,26 +129,26 @@ const Navigation = () => {
             <AnimatePresence>
                 {menuOpen && (
                     <motion.nav
-                        className="fixed inset-0 bg-black/60 flex flex-col items-end md:hidden z-50"
+                        className="fixed inset-0 bg-primary/60 backdrop-blur-sm flex flex-col items-end md:hidden z-50"
                         initial="hidden"
                         animate="visible"
                         exit="exit"
                         variants={mobileMenuVariants}
                     >
-                        <div className="bg-white w-3/4 max-w-xs h-full shadow-lg flex flex-col py-8 px-6 relative">
+                        <div className="bg-background w-3/4 max-w-xs h-full shadow-2xl flex flex-col py-8 px-6 relative">
                             <button
                                 aria-label="Close menu"
                                 onClick={() => setMenuOpen(false)}
-                                className="absolute top-4 right-4 focus:outline-none"
+                                className="absolute top-4 right-4 focus:outline-none transition-transform hover:rotate-90"
                             >
-                                <X className="w-7 h-7 text-primary" />
+                                <X className="w-7 h-7 text-primary hover:text-accent transition-colors" />
                             </button>
                             <div className="flex flex-col gap-6 mt-10">
                                 {navLinks.map((link, i) => (
                                     <motion.div key={link.to} custom={i} initial="hidden" animate="visible" variants={linkVariants}>
                                         <Link
                                             to={link.to}
-                                            className="uppercase font-light hover:font-medium text-lg py-2 px-2 rounded hover:bg-accent/30 transition-colors duration-200"
+                                            className="uppercase tracking-widest text-xs font-semibold py-3 px-4 rounded hover:bg-neutral/10 transition-colors duration-300 w-full text-right hover:text-accent text-secondary"
                                         >
                                             {link.label}
                                         </Link>
